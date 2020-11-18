@@ -22,13 +22,11 @@ public class EmployeeService {
 		return employeeMapper.getEmployeeModelById(id);
 	}
 
-	public Integer deleteEmployeeById(Integer id) {
-		employeeMapper.deleteEmployeeById(id);
-		return id;
+	public boolean deleteEmployeeById(Integer id) {
+		return employeeMapper.deleteEmployeeById(id);
 	}
 
-	public Integer updateEmployeeById(Integer id, String name, double salary, Integer age) {
-		employeeMapper.updateEmployeeById(id, name, salary, age);
-		return id;
+	public boolean updateEmployee(EmployeeModel employeeModel) {
+		return employeeMapper.updateEmployee(employeeModel);
 	}
 }

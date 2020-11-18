@@ -3,10 +3,9 @@ package com.ibm.wude.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.wude.model.EmployeeModel;
@@ -39,27 +38,24 @@ public class EmployeeController {
 	 * 删除员工信息
 	 * 
 	 * @param id
-	 * @return 处理状态
+	 * @return
 	 */
-	@DeleteMapping("/delEmpById/{id}")
-	public Integer deleteEmployeeById(@PathVariable("id") Integer id) {
-		employeeService.deleteEmployeeById(id);
-		return id;
+	// @DeleteMapping("/delEmpById/{id}")
+	@GetMapping("/delEmpById/{id}")
+	public boolean deleteEmployeeById(@PathVariable("id") Integer id) {
+		System.out.println("id:" + id);
+		return employeeService.deleteEmployeeById(id);
 	}
 
 	/**
 	 * 更新员工信息
 	 * 
-	 * @param id
-	 * @param name
-	 * @param salary
-	 * @param age
+	 * @param employeeModel
 	 * @return
 	 */
-	@PutMapping("/updateEmpById/{id}/{name}/{salary}/{age}")
-	public Integer updateEmployeeById(@PathVariable("id") Integer id, @PathVariable("name") String name,
-			@PathVariable("salary") Double salary, @PathVariable("age") Integer age) {
-		employeeService.updateEmployeeById(id, name, salary, age);
-		return id;
+	// @PutMapping("/updateEmpById")
+	@GetMapping("/updateEmp")
+	public boolean updateEmployee(@RequestBody EmployeeModel employeeModel) {
+		return employeeService.updateEmployee(employeeModel);
 	}
 }

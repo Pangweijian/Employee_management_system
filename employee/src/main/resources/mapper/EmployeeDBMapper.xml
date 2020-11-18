@@ -15,7 +15,7 @@
 		DELETE FROM t_emp WHERE id=#{id}
 	</delete>
 	
-	<update id = "updateEmployeeById">
+	<update id = "updateEmployee">
 	UPDATE t_emp SET
 	name=#{name},
 	salary=#{salary},
