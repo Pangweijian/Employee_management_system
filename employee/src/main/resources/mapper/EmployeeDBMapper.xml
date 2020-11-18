@@ -5,9 +5,22 @@
 	<select id = "getAllEmployee" resultType = "com.ibm.wude.model.EmployeeModel">
 		select * from t_emp
 	</select>
+
 	
 	<select id = "getEmployeeModelById" resultType = "com.ibm.wude.model.EmployeeModel">
-		select * from t_emp where id=#{id}
+		SELECT * FROM t_emp WHERE id=#{id}
 	</select>
 	
+	<delete id = "deleteEmployeeById">
+		DELETE FROM t_emp WHERE id=#{id}
+	</delete>
+	
+	<update id = "updateEmployeeById">
+	UPDATE t_emp SET
+	name=#{name},
+	salary=#{salary},
+	age=#{age}
+	WHERE
+	id=#{id}
+	</update>
 </mapper>
