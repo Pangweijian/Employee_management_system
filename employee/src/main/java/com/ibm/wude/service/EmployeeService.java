@@ -18,7 +18,7 @@ public class EmployeeService {
 		return employeeMapper.getAllEmployee();
 	}
 
-	public EmployeeModel getEmployeeModelById(Integer id) {
+	public EmployeeModel getEmployeeById(Integer id) {
 		return employeeMapper.getEmployeeModelById(id);
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.wude.model.EmployeeModel;
@@ -23,17 +24,12 @@ public class EmployeeController {
 
 	/**
 	 * 查询员工信息
+	 * 
+	 * @param id
+	 * @return 查询结果
 	 */
 	@GetMapping("/getEmpById/{id}")
-	public EmployeeModel getEmployeeModelById(Integer id) {
-		return employeeService.getEmployeeModelById(id);
+	public EmployeeModel getEmployeeModelById(@PathVariable("id") Integer id) {
+		return employeeService.getEmployeeById(id);
 	}
-
-	/**
-	 * 修改员工信息
-	 */
-
-	/**
-	 * 删除员工信息
-	 */
 }
