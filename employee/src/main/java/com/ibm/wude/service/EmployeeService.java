@@ -21,4 +21,14 @@ public class EmployeeService {
 	public EmployeeModel getEmployeeById(Integer id) {
 		return employeeMapper.getEmployeeModelById(id);
 	}
+
+	public Integer deleteEmployeeById(Integer id) {
+		employeeMapper.deleteEmployeeById(id);
+		return id;
+	}
+
+	public Integer updateEmployeeById(Integer id, String name, double salary, Integer age) {
+		employeeMapper.updateEmployeeById(id, name, salary, age);
+		return id;
+	}
 }
