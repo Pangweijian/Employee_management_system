@@ -13,8 +13,12 @@ public class EmployeeService {
 
 	@Autowired
 	EmployeeMapper employeeMapper;
-	
-	public List<EmployeeModel> getAllEmployee(){
+
+	public List<EmployeeModel> getAllEmployee() {
 		return employeeMapper.getAllEmployee();
+	}
+
+	public EmployeeModel getEmployeeById(Integer id) {
+		return employeeMapper.getEmployeeModelById(id);
 	}
 }

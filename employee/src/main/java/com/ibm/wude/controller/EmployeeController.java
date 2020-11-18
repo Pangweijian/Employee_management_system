@@ -14,10 +14,15 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
-	
+
 	@GetMapping("/getAllEmployee")
-	public List<EmployeeModel> getAllEmployee(){
+	public List<EmployeeModel> getAllEmployee() {
 		List<EmployeeModel> list = employeeService.getAllEmployee();
 		return list;
+	}
+
+	@GetMapping("/getEmpById/{id}")
+	public EmployeeModel getEmployeeModelById(Integer id) {
+		return employeeService.getEmployeeById(id);
 	}
 }
