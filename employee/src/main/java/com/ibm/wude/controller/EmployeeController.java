@@ -39,7 +39,7 @@ public class EmployeeController {
 	 * 删除员工信息
 	 * 
 	 * @param id
-	 * @return 处理状态
+	 * @return id
 	 */
 	@DeleteMapping("/delEmpById/{id}")
 	public Integer deleteEmployeeById(@PathVariable("id") Integer id) {
@@ -58,7 +58,7 @@ public class EmployeeController {
 	 */
 	@PutMapping("/updateEmpById/{id}/{name}/{salary}/{age}")
 	public Integer updateEmployeeById(@PathVariable("id") Integer id, @PathVariable("name") String name,
-			@PathVariable("salary") Double salary, @PathVariable("age") Integer age) {
+			@PathVariable("salary") double salary, @PathVariable("age") Integer age) {
 		employeeService.updateEmployeeById(id, name, salary, age);
 		return id;
 	}
