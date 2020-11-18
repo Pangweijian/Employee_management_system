@@ -14,10 +14,26 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
-	
+
 	@GetMapping("/getAllEmployee")
-	public List<EmployeeModel> getAllEmployee(){
+	public List<EmployeeModel> getAllEmployee() {
 		List<EmployeeModel> list = employeeService.getAllEmployee();
 		return list;
 	}
+
+	/**
+	 * 查询员工信息
+	 */
+	@GetMapping("/getEmpById/{id}")
+	public EmployeeModel getEmployeeModelById(Integer id) {
+		return employeeService.getEmployeeModelById(id);
+	}
+
+	/**
+	 * 修改员工信息
+	 */
+
+	/**
+	 * 删除员工信息
+	 */
 }

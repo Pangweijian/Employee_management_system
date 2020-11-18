@@ -10,11 +10,13 @@ import com.ibm.wude.model.EmployeeModel;
 public interface EmployeeMapper {
 
 	public int addEmploy(EmployeeModel employee);
-	public int deleteEmployeeById(int id);
-	public int updateEmployeeById(int id);
-	public EmployeeModel getEmployeeModelById();
-	
+
+	public int deleteEmployeeById(Integer id);
+
+	public int updateEmployeeById(Integer id);
+
+	public EmployeeModel getEmployeeModelById(Integer id);
+
 	public List<EmployeeModel> getAllEmployee();
-	
-	
+
 }
