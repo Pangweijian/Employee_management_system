@@ -21,6 +21,12 @@ public class EmployeeController {
 		return list;
 	}
 
+	/**
+	 * 查询员工信息
+	 * 
+	 * @param id
+	 * @return 查询结果
+	 */
 	@GetMapping("/getEmpById/{id}")
 	public EmployeeModel getEmployeeModelById(Integer id) {
 		return employeeService.getEmployeeById(id);
