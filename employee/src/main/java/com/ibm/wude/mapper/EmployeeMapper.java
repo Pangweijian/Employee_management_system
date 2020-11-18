@@ -11,9 +11,9 @@ public interface EmployeeMapper {
 
 	public int addEmploy(EmployeeModel employee);
 
-	public Integer deleteEmployeeById(Integer id);
+	public boolean deleteEmployeeById(Integer id);
 
-	public Integer updateEmployeeById(Integer id, String name, double salary, Integer age);
+	public boolean updateEmployee(EmployeeModel employeeModel);
 
 	public EmployeeModel getEmployeeModelById(Integer id);
 
