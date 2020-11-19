@@ -11,6 +11,10 @@
 		SELECT * FROM t_emp WHERE id=#{id}
 	</select>
 	
+	<select id = "getEmployeeModelByName" resultType = "com.ibm.wude.model.EmployeeModel">
+		SELECT * FROM t_emp WHERE name=#{name}
+	</select>
+	
 	<delete id = "deleteEmployeeById">
 		DELETE FROM t_emp WHERE id=#{id}
 	</delete>
