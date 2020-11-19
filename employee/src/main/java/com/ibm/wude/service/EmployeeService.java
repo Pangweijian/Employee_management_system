@@ -22,6 +22,10 @@ public class EmployeeService {
 		return employeeMapper.getEmployeeModelById(id);
 	}
 
+	public EmployeeModel getEmployeeByName(String name) {
+		return employeeMapper.getEmployeeModelByName(name);
+	}
+
 	public boolean deleteEmployeeById(Integer id) {
 		return employeeMapper.deleteEmployeeById(id);
 	}
