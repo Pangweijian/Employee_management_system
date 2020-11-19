@@ -18,6 +18,11 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 
+	@GetMapping("/addEmploy")
+	public int addEmploy(@RequestBody EmployeeModel employee) {
+		return employeeService.addEmploy(employee);
+	}
+
 	@GetMapping("/getAllEmployee")
 	public List<EmployeeModel> getAllEmployee() {
 		List<EmployeeModel> list = employeeService.getAllEmployee();
