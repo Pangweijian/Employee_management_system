@@ -15,7 +15,7 @@ public interface EmployeeMapper {
 
 	public boolean updateEmployee(EmployeeModel employeeModel);
 
-	public EmployeeModel getEmployeeModelById(Integer id);
+	public EmployeeModel getEmployeeModelById(Integer username);
 
 	public List<EmployeeModel> getAllEmployee();
 
