@@ -52,7 +52,6 @@ public class EmployeeController {
 	 * @param id
 	 * @return
 	 */
-	// @DeleteMapping("/delEmpById/{id}")
 	@GetMapping("/delEmpById/{id}")
 	public boolean deleteEmployeeById(@PathVariable("id") Integer id) {
 		EmployeeModel emp = new EmployeeModel();
@@ -71,10 +70,7 @@ public class EmployeeController {
 	 * @param employeeModel
 	 * @return
 	 */
-//	@PutMapping("/updateEmp")
-	// @GetMapping("/updateEmp")
 	@PostMapping("/updateEmp")
-//	@Update("/updateEmp")
 	public boolean updateEmployee(@RequestBody EmployeeModel emp) {
 		if (getEmployeeModelById(emp.getId()) != null) {
 			return employeeService.updateEmployee(emp);
