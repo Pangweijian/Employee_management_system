@@ -14,7 +14,7 @@ public interface UserMapper {
 
 	public UserModel getUserModelByUsername(String username);
 
-	public boolean getUserModelByUserlogin(UserModel user);
+	public UserModel getUserModelByUserlogin(UserModel user);
 
 	public List<UserModel> getAllUser();
 }

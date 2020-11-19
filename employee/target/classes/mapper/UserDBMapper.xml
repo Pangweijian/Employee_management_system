@@ -12,7 +12,7 @@
 		SELECT * FROM t_user WHERE username = #{username}
 	</select>
 	
-	<select id = "getUserModelByUserlogin" parameterType = "com.ibm.wude.model.UserModel" resultType = "java.lang.Boolean">
+	<select id = "getUserModelByUserlogin" parameterType = "com.ibm.wude.model.UserModel" resultType = "com.ibm.wude.model.UserModel">
 		SELECT * FROM t_user WHERE username = #{username} and password = #{password}
 	</select>
 	

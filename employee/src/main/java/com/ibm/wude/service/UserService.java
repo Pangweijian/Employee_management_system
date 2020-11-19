@@ -22,7 +22,11 @@ public class UserService {
 	}
 
 	public boolean getUserModelByUserlogin(UserModel user) {
-		return userMapper.getUserModelByUserlogin(user);
+		if (userMapper.getUserModelByUserlogin(user) != null)
+			return true;
+		else {
+			return false;
+		}
 	}
 
 	public boolean addUser(UserModel userModel) {
