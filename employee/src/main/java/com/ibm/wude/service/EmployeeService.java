@@ -14,6 +14,10 @@ public class EmployeeService {
 	@Autowired
 	EmployeeMapper employeeMapper;
 
+	public int addEmploy(EmployeeModel employee) {
+		return employeeMapper.addEmploy(employee);
+	}
+
 	public List<EmployeeModel> getAllEmployee() {
 		return employeeMapper.getAllEmployee();
 	}
