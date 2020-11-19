@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,11 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
+
+	@GetMapping("/addEmploy")
+	public int addEmploy(@RequestBody EmployeeModel employee) {
+		return employeeService.addEmploy(employee);
+	}
 
 	@GetMapping("/getAllEmployee")
 	public List<EmployeeModel> getAllEmployee() {
@@ -35,16 +41,32 @@ public class EmployeeController {
 	}
 
 	/**
+	 * 查询员工信息
+	 * 
+	 * @param name
+	 * @return
+	 */
+	@GetMapping("/getEmpByName/{name}")
+	public EmployeeModel getEmployeeModelByName(@PathVariable("name") String name) {
+		return employeeService.getEmployeeByName(name);
+	}
+
+	/**
 	 * 删除员工信息
 	 * 
 	 * @param id
 	 * @return
 	 */
-	// @DeleteMapping("/delEmpById/{id}")
 	@GetMapping("/delEmpById/{id}")
 	public boolean deleteEmployeeById(@PathVariable("id") Integer id) {
-		System.out.println("id:" + id);
-		return employeeService.deleteEmployeeById(id);
+		EmployeeModel emp = new EmployeeModel();
+		emp.setId(id);
+		if (getEmployeeModelById(id) != null) {
+			return employeeService.deleteEmployeeById(id);
+		} else {
+			return false;
+		}
+
 	}
 
 	/**
@@ -53,9 +75,12 @@ public class EmployeeController {
 	 * @param employeeModel
 	 * @return
 	 */
-	// @PutMapping("/updateEmpById")
-	@GetMapping("/updateEmp")
-	public boolean updateEmployee(@RequestBody EmployeeModel employeeModel) {
-		return employeeService.updateEmployee(employeeModel);
+	@PostMapping("/updateEmp")
+	public boolean updateEmployee(@RequestBody EmployeeModel emp) {
+		if (getEmployeeModelById(emp.getId()) != null) {
+			return employeeService.updateEmployee(emp);
+		} else {
+			return false;
+		}
 	}
 }

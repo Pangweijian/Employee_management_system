@@ -14,12 +14,20 @@ public class EmployeeService {
 	@Autowired
 	EmployeeMapper employeeMapper;
 
+	public int addEmploy(EmployeeModel employee) {
+		return employeeMapper.addEmploy(employee);
+	}
+
 	public List<EmployeeModel> getAllEmployee() {
 		return employeeMapper.getAllEmployee();
 	}
 
 	public EmployeeModel getEmployeeById(Integer id) {
 		return employeeMapper.getEmployeeModelById(id);
+	}
+
+	public EmployeeModel getEmployeeByName(String name) {
+		return employeeMapper.getEmployeeModelByName(name);
 	}
 
 	public boolean deleteEmployeeById(Integer id) {
