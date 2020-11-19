@@ -63,7 +63,7 @@ public class UserController {
 	 * @param userModel
 	 * @return
 	 */
-	@PostMapping("/addUser")
+	@PostMapping("/register")
 	public boolean addUser(@RequestBody UserModel userModel) {
 		if (UserService.getUserByUsername(userModel.getUsername()) == null) {
 			return UserService.addUser(userModel);
