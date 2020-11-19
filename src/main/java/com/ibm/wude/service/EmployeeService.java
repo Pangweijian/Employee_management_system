@@ -17,4 +17,8 @@ public class EmployeeService {
 	public List<EmployeeModel> getAllEmployee(){
 		return employeeMapper.getAllEmployee();
 	}
+	
+	public int addEmploy(EmployeeModel employee) {
+		return employeeMapper.addEmploy(employee);
+	}
 }

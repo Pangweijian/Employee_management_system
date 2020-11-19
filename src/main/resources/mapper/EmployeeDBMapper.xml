@@ -1,9 +1,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.ibm.wude.mapper.EmployeeMapper">
-
-
 	<select id = "getAllEmployee" resultType = "com.ibm.wude.model.EmployeeModel">
 		select * from t_emp
 	</select>
 	
+	<insert id = "addEmploy" >
+		insert into t_emp(id,name,salary,age) values(#{id},#{name},#{salary},#{age})
+	</insert>
 </mapper>
