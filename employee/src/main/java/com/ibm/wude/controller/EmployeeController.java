@@ -2,10 +2,11 @@ package com.ibm.wude.controller;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.wude.model.EmployeeModel;
@@ -51,7 +52,6 @@ public class EmployeeController {
 	 * @param id
 	 * @return
 	 */
-	// @DeleteMapping("/delEmpById/{id}")
 	@GetMapping("/delEmpById/{id}")
 	public boolean deleteEmployeeById(@PathVariable("id") Integer id) {
 		EmployeeModel emp = new EmployeeModel();
@@ -70,16 +70,9 @@ public class EmployeeController {
 	 * @param employeeModel
 	 * @return
 	 */
-	// @PutMapping("/updateEmpById")
-	@GetMapping("/updateEmp")
-	public boolean updateEmployee(@Param("id") Integer id, @Param("name") String name, @Param("salary") String salary,
-			@Param("age") Integer age) {
-		EmployeeModel emp = new EmployeeModel();
-		emp.setId(id);
-		emp.setName(name);
-		emp.setSalary(salary);
-		emp.setAge(age);
-		if (getEmployeeModelById(id) != null) {
+	@PostMapping("/updateEmp")
+	public boolean updateEmployee(@RequestBody EmployeeModel emp) {
+		if (getEmployeeModelById(emp.getId()) != null) {
 			return employeeService.updateEmployee(emp);
 		} else {
 			return false;

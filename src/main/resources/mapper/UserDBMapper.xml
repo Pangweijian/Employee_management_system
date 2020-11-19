@@ -5,9 +5,8 @@
 		select * from t_user
 	</select>
 	
-	<insert id="addUser" >
+	<insert id="addUser">
 		insert into t_user(id,username,realname,password,sex) values (#{id},#{username},#{realname},#{password},#{sex})
 	</insert>
 	
 </mapper>
-
