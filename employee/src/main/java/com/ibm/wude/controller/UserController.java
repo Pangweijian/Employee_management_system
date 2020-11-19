@@ -25,7 +25,7 @@ public class UserController {
 	}
 
 	/**
-	 * 查询员工信息
+	 * 查询用户信息
 	 * 
 	 * @param username
 	 * @return 查询结果
@@ -37,6 +37,12 @@ public class UserController {
 		return UserService.getUserByUsername(username);
 	}
 
+	/**
+	 * 用户登录
+	 * 
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("/getUserModelByUserlogin")
 	public boolean getUserModelByUserlogin(@RequestBody UserModel user) {
 //		System.out.println(user.getUsername());
@@ -52,13 +58,17 @@ public class UserController {
 	}
 
 	/**
-	 * 增加员工信息
+	 * 增加用户信息（注册）
 	 * 
 	 * @param userModel
 	 * @return
 	 */
 	@PostMapping("/addUser")
 	public boolean addUser(@RequestBody UserModel userModel) {
-		return UserService.addUser(userModel);
+		if (UserService.getUserByUsername(userModel.getUsername()) == null) {
+			return UserService.addUser(userModel);
+		} else {
+			return false;
+		}
 	}
 }
