@@ -39,10 +39,6 @@ public class UserController {
 
 	@PostMapping("/getUserModelByUserlogin")
 	public boolean getUserModelByUserlogin(@RequestBody UserModel user) {
-//		System.out.println("username:" + user.getUsername());
-//		System.out.println("passwd:" + user.getPassword());
-//		boolean i = UserService.getUserModelByUserlogin(user);
-//		System.out.println(i);
 		System.out.println(user.getUsername());
 		if (UserService.getUserByUsername(user.getUsername()) != null) {
 			return UserService.getUserModelByUserlogin(user);
@@ -58,8 +54,6 @@ public class UserController {
 	 * @param userModel
 	 * @return
 	 */
-	// @PutMapping("/updateUserByusername")
-//	@GetMapping("/addUser")
 	@PostMapping("/addUser")
 	public boolean addUser(@RequestBody UserModel userModel) {
 		return UserService.addUser(userModel);

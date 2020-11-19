@@ -14,7 +14,6 @@
 	
 	<select id = "getUserModelByUserlogin" parameterType = "com.ibm.wude.model.UserModel" resultType = "java.lang.Boolean">
 		SELECT * FROM t_user WHERE username = #{username} and password = #{password}
-		
 	</select>
 	
 	<insert id="addUser" parameterType="com.ibm.wude.model.UserModel">
