@@ -48,7 +48,7 @@ public class UserController {
 	@PostMapping("/getUserModelByUserlogin")
 	public boolean getUserModelByUserlogin(@RequestBody UserModel user) {
 //		System.out.println(user.getUsername());
-		System.out.println(UserService.getUserByUsername(user.getUsername()));
+//		System.out.println(UserService.getUserByUsername(user.getUsername()));
 		if (UserService.getUserByUsername(user.getUsername()) != null) {
 			if (UserService.getUserModelByUserlogin(user) != false) {
 				return true;
