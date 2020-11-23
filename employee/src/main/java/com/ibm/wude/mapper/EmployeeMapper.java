@@ -1,6 +1,7 @@
 package com.ibm.wude.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -20,5 +21,9 @@ public interface EmployeeMapper {
 	public EmployeeModel getEmployeeModelById(Integer id);
 
 	public List<EmployeeModel> getAllEmployee();
+
+	public List<EmployeeModel> getEmpByPage(Map<String, Object> params);
+
+	public long count();
 
 }

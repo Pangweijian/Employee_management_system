@@ -30,4 +30,11 @@
 	WHERE
 	id=#{id}
 	</update>
+	
+	<select id = "getEmpByPage" resultType = "com.ibm.wude.model.EmployeeModel">
+	select * from t_emp limit #{page},#{size}
+	</select>
+	<select id = "count" resultType = "long">
+	select count(id) from t_emp
+	</select>
 </mapper>

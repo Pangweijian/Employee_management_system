@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.wude.model.EmployeeModel;
+import com.ibm.wude.model.Pager;
 import com.ibm.wude.service.EmployeeService;
 
 @RestController
@@ -58,6 +60,7 @@ public class EmployeeController {
 	 * @return
 	 */
 	@GetMapping("/delEmpById/{id}")
+//	@DeleteMapping("/delEmpById/{id}")
 	public boolean deleteEmployeeById(@PathVariable("id") Integer id) {
 		EmployeeModel emp = new EmployeeModel();
 		emp.setId(id);
@@ -82,5 +85,11 @@ public class EmployeeController {
 		} else {
 			return false;
 		}
+	}
+
+//	@GetMapping("/getEmpByPage/{page}/{size}")
+	@RequestMapping("/getEmpByPage")
+	public Pager<EmployeeModel> getEmpByPage(@RequestBody Pager<EmployeeModel> page) {
+		return employeeService.getEmpByPage(page);
 	}
 }
