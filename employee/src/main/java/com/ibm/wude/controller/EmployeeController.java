@@ -87,7 +87,12 @@ public class EmployeeController {
 		}
 	}
 
-//	@GetMapping("/getEmpByPage/{page}/{size}")
+	/**
+	 * 分页查询
+	 * 
+	 * @param page
+	 * @return
+	 */
 	@RequestMapping("/getEmpByPage")
 	public Pager<EmployeeModel> getEmpByPage(@RequestBody Pager<EmployeeModel> page) {
 		return employeeService.getEmpByPage(page);
