@@ -3,6 +3,7 @@ package com.ibm.wude.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,13 +16,14 @@ import com.ibm.wude.model.EmployeeModel;
 import com.ibm.wude.model.Pager;
 import com.ibm.wude.service.EmployeeService;
 
+@CrossOrigin
 @RestController
 public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
 
-	@GetMapping("/addEmploy")
+	@PostMapping("/addEmploy")
 	public int addEmploy(@RequestBody EmployeeModel employee) {
 		return employeeService.addEmploy(employee);
 	}
