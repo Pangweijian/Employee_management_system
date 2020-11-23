@@ -3,6 +3,7 @@ package com.ibm.wude.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,8 +60,8 @@ public class EmployeeController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/delEmpById/{id}")
-//	@DeleteMapping("/delEmpById/{id}")
+//	@GetMapping("/delEmpById/{id}")
+	@DeleteMapping("/delEmpById/{id}")
 	public boolean deleteEmployeeById(@PathVariable("id") Integer id) {
 		EmployeeModel emp = new EmployeeModel();
 		emp.setId(id);
